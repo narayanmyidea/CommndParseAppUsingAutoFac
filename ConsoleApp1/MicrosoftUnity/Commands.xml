@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Commands>
+  <Command EntityCommand="Student" AttributeCommnd="" Name="List Students" HelpContent="List Students"></Command>
+  <Command EntityCommand="Student" AttributeCommnd="/C" Name="Create Student" HelpContent="Creates Student"></Command>
+  <Command EntityCommand="Student" AttributeCommnd="/L" Name="List Students" HelpContent="Display's Students"></Command>
+  <Command EntityCommand="School"  AttributeCommnd="" Name="List Schools" HelpContent="Display's School"></Command>
+  <Command EntityCommand="School"  AttributeCommnd="/C" Name="Create School" HelpContent="Create School"></Command>
+  <Command EntityCommand="School"  AttributeCommnd="/L" Name="List Schools" HelpContent="Display's School"></Command>
+</Commands>

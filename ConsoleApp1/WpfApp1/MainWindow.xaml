@@ -1,0 +1,77 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:mmm="clr-namespace:WpfApp1.Properties"
+        mc:Ignorable="d"
+        Title="MainWindow" >
+    <Window.Resources>
+        <mmm:Resources x:Key="meresource"/>
+        <Style x:Key="RoundButtonTemplate" TargetType="Button">
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="3" Background="{TemplateBinding Background}"
+                                BorderThickness="1" Padding="10 0 10 0" BorderBrush="Black">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" >
+                            </ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="Transparent"></Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="LightSkyBlue"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+
+        <StackPanel Orientation="Horizontal" Height="50" Width="300">
+        <Button ToolTip="View\Refresh Schematic" Style="{StaticResource RoundButtonTemplate}"   >
+            <StackPanel Orientation="Horizontal">
+                <Ellipse Fill="Red" Width="12" Height="12">
+                 
+                    <Ellipse.Triggers>
+                        <EventTrigger RoutedEvent="Ellipse.Loaded">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Ellipse.Fill).(SolidColorBrush.Color)"
+                                                                      Duration="0:0:1"
+                                                                      FillBehavior="HoldEnd"
+                                                                      RepeatBehavior="Forever">
+                                            <ColorAnimationUsingKeyFrames.KeyFrames>
+                                                <DiscreteColorKeyFrame KeyTime="0:0:0.3" Value="Red"/>
+                                                <DiscreteColorKeyFrame KeyTime="0:0:0" Value="White"/>
+                                            </ColorAnimationUsingKeyFrames.KeyFrames>
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </Ellipse.Triggers>
+                </Ellipse>
+                <Label Padding="5,4,5,4" >View\Refresh Schematic</Label>
+            </StackPanel>
+        </Button>
+            <Button ToolTip="View\Refresh Schematic" Style="{StaticResource RoundButtonTemplate}"   >
+                <StackPanel Orientation="Horizontal">
+                    <Image  Source="icons/eye.png" Height="16" Width="20" Stretch="Uniform"></Image>
+                    <Label Padding="5,4,5,4" >View\Refresh Schematic</Label>
+                </StackPanel>
+            </Button>
+            <Button ToolTip="View\Refresh Schematic" Style="{StaticResource RoundButtonTemplate}"   >
+            <StackPanel Orientation="Horizontal">
+                    <MediaElement   Height="16" Width="20" Stretch="Uniform"></MediaElement>
+                <Label Padding="5,4,5,4" >View\Refresh Schematic</Label>
+            </StackPanel>
+        </Button>
+        </StackPanel>
+    </Grid>
+</Window>
